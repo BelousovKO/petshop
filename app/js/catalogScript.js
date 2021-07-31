@@ -10,6 +10,9 @@ const filter = document.querySelector('.filter');
 const items = document.querySelector('.div-items');
 const showMore = document.querySelector('.div-show-more');
 const closeFilter = document.querySelector('.filter-img');
+const buttonMobileMenu = document.querySelector('.inCatalog-mobile');
+const mobileMenu = document.querySelector('.mobile-menu');
+const exitMobileMenu = document.querySelector('.out-mobile-menu');
 
 inCatalog.addEventListener('click', () => {
   catalogIn();
@@ -50,11 +53,22 @@ filterButton.addEventListener('click', () => {
   filter.style.display = 'block';
   items.style.display = 'none';
   filterButton.style.display = 'none';
-  // showMore.style.display =
 });
 
 closeFilter.addEventListener('click', () => {
   filter.style.display = 'none';
   items.style.display = 'block';
   filterButton.style.display = 'block';
+});
+
+buttonMobileMenu.addEventListener('click', () => {
+  mobileMenu.style.display = 'block';
+  buttonMobileMenu.style.display = 'none';
+  exitMobileMenu.style.display = 'block';
+});
+
+exitMobileMenu.addEventListener('click', () => {
+  exitMobileMenu.style.display = 'none';
+  buttonMobileMenu.style.display = 'block';
+  mobileMenu.style.display = 'none';
 })

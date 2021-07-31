@@ -56,13 +56,20 @@ header {
     height: 72px;
 }
 
-.catalog {
+.catalog-open,
+.catalog-close {
     width: 148px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: center;
+}
+
+.catalog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .catalog > svg {
@@ -168,6 +175,19 @@ header {
     color: #FBBA3C;
 }
 
+.out-mobile-menu {
+    display: none;
+}
+
+.exit-mobile-menu {
+    width: 56px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    margin-right: 14px;
+}
+
 @media (max-width: 1023px) {
     .logo img {
         width: 57px;
@@ -175,7 +195,8 @@ header {
         margin: 0 10px;
     }
 
-    .catalog {
+    .catalog-open,
+    .catalog-close {
         width: 124px;
     }
 
@@ -218,7 +239,8 @@ header {
         margin-right: 0;
     }
 
-    .catalog span {
+    .catalog-open,
+    .catalog-close {
         display: none;
     }
 
@@ -232,7 +254,6 @@ header {
 
     .inCatalog-mobile {
         display: block;
-
         padding-right: 14px;
     }
 

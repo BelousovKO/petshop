@@ -256,6 +256,32 @@ h1 {
     display: none;
 }
 
+.mobile-menu {
+    display: none;
+    height: calc(100vh - 80px);
+    width: 100%;
+    position: sticky;
+    top: 80px;
+    left: 0;
+    z-index: 4;
+    padding-top: 20%;
+}
+
+.mobile-menu a {
+    display: inline-block;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-menu a img {
+    margin: 0 auto;
+}
+
+.mobile-menu a:hover {
+   color: #E19605;
+}
+
 @media (max-width: 639px) {
     .base {
         grid-template-columns: 1fr;
