@@ -10,36 +10,28 @@ xhr.send();
 
 function initOnload1() {
 
-    let temp = xhr.responseText;
-    let infoCards = JSON.parse(temp);
-
-    let parentItem = document.querySelector('.product-section');
+    const infoCards = JSON.parse(xhr.responseText);
+    const parentItem = document.querySelector('.product-section');
     const menuFilter = document.createElement("div");
-    menuFilter.classList.add('menuFilter');
+    const buttonFilter = document.createElement("span");
+    const allCheckboxLabel = document.querySelectorAll('.label');
+    const hunterCheckbox = document.querySelector("#hunter");
+    const companionCheckbox = document.querySelector("#companion");
+    const decorativeCheckbox = document.querySelector("#decorative");
+    const serviceCheckbox = document.querySelector("#service");
+    const noFearCheckbox = document.querySelector("#noFear");
+    const shedsLittleCheckbox = document.querySelector("#shedsLittle");
+    const excellentHealthCheckbox = document.querySelector("#excellentHealth");
+    const goodObedienceCheckbox = document.querySelector("#goodObedience");
+    const veryDevotedCheckbox = document.querySelector("#veryDevoted");
+    const template = document.querySelector('.product-list__item');
     let filterCount = 0;
-    let buttonFilter = document.createElement("span");
-    buttonFilter.classList.add('buttonFilter');
-    buttonFilter.textContent = 'Показать';
-    let allCheckboxLabel = document.querySelectorAll('.label');
-    let hunterCheckbox = document.querySelector("#hunter");
-    let companionCheckbox = document.querySelector("#companion");
-    let decorativeCheckbox = document.querySelector("#decorative");
-    let serviceCheckbox = document.querySelector("#service");
-    let noFearCheckbox = document.querySelector("#noFear");
-    let shedsLittleCheckbox = document.querySelector("#shedsLittle");
-    let excellentHealthCheckbox = document.querySelector("#excellentHealth");
-    let goodObedienceCheckbox = document.querySelector("#goodObedience");
-    let veryDevotedCheckbox = document.querySelector("#veryDevoted");
-    let checkboxAll = document.querySelectorAll('.checkbox');
     let filter = {};
     let resultFilter = [];
-    let i = 0;
 
-   checkboxAll.forEach(checkbox => {
-        if (checkbox.checked) {
-            i++;
-        }
-    });
+    menuFilter.classList.add('menuFilter');
+    buttonFilter.classList.add('buttonFilter');
+    buttonFilter.textContent = 'Показать';
     filter.hunter = hunterCheckbox.checked;
     filter.companion = companionCheckbox.checked;
     filter.decorative = decorativeCheckbox.checked;
@@ -50,7 +42,7 @@ function initOnload1() {
     filter.goodObedience = goodObedienceCheckbox.checked;
     filter.veryDevoted = veryDevotedCheckbox.checked;
     filterCards();
-    let template = document.querySelector('.product-list__item');
+
     parentItem.textContent = '';
 
     const randomSortCards = resultFilter.sort(function () {
@@ -80,43 +72,36 @@ function initOnload1() {
 
         hunterCheckbox.addEventListener('change', (event) => {
             filter.hunter = !!event.target.checked;
-            console.log("хантер ", filter.hunter);
             filterCards();
         })
 
         companionCheckbox.addEventListener('change', (event) => {
             filter.companion = !!event.target.checked;
-            console.log("компаньён ", filter.companion);
             filterCards();
         })
 
         decorativeCheckbox.addEventListener('change', (event) => {
             filter.decorative = !!event.target.checked;
-            console.log("декоративная ", filter.decorative);
             filterCards();
         })
 
         serviceCheckbox.addEventListener('change', (event) => {
             filter.service = !!event.target.checked;
-            console.log("служебная ", filter.service);
             filterCards();
         })
 
         noFearCheckbox.addEventListener('change', (event) => {
             filter.noFear = !!event.target.checked;
-            console.log("отсутствует страх ", filter.noFear);
             filterCards();
         })
 
         shedsLittleCheckbox.addEventListener('change', (event) => {
             filter.shedsLittle = !!event.target.checked;
-            console.log("мало линяет ", filter.shedsLittle);
             filterCards();
         })
 
         excellentHealthCheckbox.addEventListener('change', (event) => {
             filter.excellentHealth = !!event.target.checked;
-            console.log("отличное здоровье ", filter.excellentHealth);
             filterCards();
         })
 
@@ -128,7 +113,6 @@ function initOnload1() {
 
         veryDevotedCheckbox.addEventListener('change', (event) => {
             filter.veryDevoted = !!event.target.checked;
-            console.log("очень преданная ", filter.veryDevoted);
             filterCards();
         })
 
@@ -179,7 +163,6 @@ function initOnload1() {
             }
             resultFilter.push(card);
         })
-        console.log("отфильтрованный список", resultFilter);
         filterCount = resultFilter.length;
         menuFilter.textContent = `Найдено совпадений: ${filterCount} `;
         menuFilter.appendChild(buttonFilter);

@@ -68,10 +68,6 @@ h1 {
 
 @media (max-width: 639px) {
     .base {
-        display: block;
-    }
-
-    .filter {
-        display: none;
+        grid-template-columns: 1fr;
     }
 }

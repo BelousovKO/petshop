@@ -4,6 +4,7 @@
     padding: 0;
 }
 
+
 html {
     font-family: Montserrat;
 }
@@ -52,6 +53,11 @@ aside {
 
 .item {
     padding: 0;
+    display: block;
+}
+
+.div-items {
+    display: block;
 }
 
 .product-section {
@@ -246,12 +252,34 @@ h1 {
     cursor: pointer;
 }
 
+.filter-img {
+    display: none;
+}
+
 @media (max-width: 639px) {
     .base {
-        display: block;
+        grid-template-columns: 1fr;
     }
 
     .breadcrumb-nav {
         display: none;
+    }
+
+    aside {
+        padding: 10px;
+    }
+
+    .form {
+        margin: 0 auto;
+    }
+
+    .filter-img {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    .menuFilter {
+        left: 25px;
+        top: 25px;
     }
 }

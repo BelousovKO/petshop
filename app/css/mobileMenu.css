@@ -10,6 +10,7 @@
     display: grid;
     grid-template-rows: auto auto;
     margin: 10px auto;
+    text-align: center;
 }
 
 .mobile-menu a img {

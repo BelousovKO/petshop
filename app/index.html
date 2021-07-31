@@ -1,282 +1,285 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Основная страница</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/filterStyle.css">
-    <link rel="stylesheet" href="css/catalogStyle.css">
-    <link rel="stylesheet" href="css/headerStyle.css">
-    <link rel="stylesheet" href="css/styleBox.css">
-    <script type="module" src="js/filterMenu.js"></script>
-    <script type="module" src="js/catalogScript.js"></script>
-    <script type="module" src="js/boxScript.js"></script>
-    <script type="module" src="js/HNY.js"></script>
-    <script type="module" src="js/test.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Основная страница</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/filterStyle.css">
+  <link rel="stylesheet" href="css/catalogStyle.css">
+  <link rel="stylesheet" href="css/headerStyle.css">
+  <link rel="stylesheet" href="css/styleBox.css">
+  <script type="module" src="js/filterMenu.js" defer></script>
+  <script type="module" src="js/catalogScript.js" defer></script>
+  <script type="module" src="js/boxScript.js" defer></script>
+<!--  <script type="module" src="js/HNY.js" defer></script>-->
 </head>
 <body>
-<div class="sum-icon-box">корзина пуста</div>
+<div class="sum-icon-box"></div>
 <div class="shadow-box"></div>
 <section class="section-box">
-    <header class="header-box">
-        <div class="h1-div">
-            <span class="h1-box">Ваша корзина пуста</span>
+  <header class="header-box">
+    <div class="h1-div">
+      <span class="h1-box">Ваша корзина пуста</span>
+    </div>
+    <a class="exit-div" href="#" aria-label="Выход">
+      <img src="css/iconButton/cancel.svg" alt="Выход" class="exit-box">
+    </a>
+  </header>
+  <div class="collections-row-items">
+    <div class="main-box">
+      <aside class="all-menu">
+        <div class="check-all-container">
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake-checkbox"></span>
+            <span class="del-all-checkbox">Выбрать всё</span>
+          </label>
         </div>
-        <a class="exit-div" href="#" aria-label="Выход">
-            <img src="css/iconButton/cancel.svg" alt="Выход" class="exit-box">
-        </a>
-    </header>
-    <div class="collections-row-items">
-        <div class="main-box">
-            <aside class="all-menu">
-                <div class="check-all-container">
-                    <label class="label">
-                        <input type="checkbox" class="checkbox">
-                        <span class="fake-checkbox"></span>
-                        <span class="del-all-checkbox">Выбрать всё</span>
-                    </label>
-                </div>
-                <div class="del-all-container">
-                    <a href="#" aria-label="Удалить всё">Удалить всё
-                        <img src="css/iconButton/delete.svg" alt="Удалить всё" class="del-all">
-                    </a>
-                </div>
-            </aside>
-            <div class="opacity-border-box"></div>
-            <aside class="row-items">
-                <div class="container-item">
-                    <div class="info-item">
-                        <label class="label">
-                            <input type="checkbox" class="checkbox">
-                            <span class="fake-checkbox"></span>
-                        </label>
-                        <span class="photo-pet-span">
+        <div class="del-all-container">
+          <a href="#" aria-label="Удалить всё">Удалить всё
+            <img src="css/iconButton/delete.svg" alt="Удалить всё" class="del-all">
+          </a>
+        </div>
+      </aside>
+      <div class="opacity-border-box"></div>
+      <aside class="row-items">
+        <div class="container-item">
+          <div class="info-item">
+            <label class="label">
+              <input type="checkbox" class="checkbox">
+              <span class="fake-checkbox"></span>
+            </label>
+            <span class="photo-pet-span">
                         <img src="#" alt="Фото питомца" class="photo-pet-box">
                     </span>
-                    </div>
-                    <div class="bred-calc">
-                        <span class="breed-box"></span>
-                        <div class="calk-container">
-                            <button class="calk minus" name="minus">-</button>
-                            <output name="quantity-breed" class="quantity-breed">1</output>
-                            <button class="calk plus" name="plus">+</button>
-                        </div>
-                    </div>
-                    <div class="del-item-container">
-                        <div class="price-del-item">
-                            <span class="price-box"></span><span class="invisible-price"></span>
-                            <span style="font-size: 20px; font-weight: 600;">₽</span>
-                            <a href="#" aria-label="Удалить всё">
-                                <img src="css/iconButton/delete.svg" alt="Удалить пароду" class="del-item">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="opacity-border-box"></div>
-            </aside>
+          </div>
+          <div class="bred-calc">
+            <span class="breed-box"></span>
+            <div class="calk-container">
+              <button class="calk minus" name="minus">-</button>
+              <output name="quantity-breed" class="quantity-breed">1</output>
+              <button class="calk plus" name="plus">+</button>
+            </div>
+          </div>
+          <div class="del-item-container">
+            <div class="price-del-item">
+              <span class="price-box"></span><span class="invisible-price"></span>
+              <span style="font-size: 20px; font-weight: 600;">₽</span>
+              <a href="#" aria-label="Удалить всё">
+                <img src="css/iconButton/delete.svg" alt="Удалить пароду" class="del-item">
+              </a>
+            </div>
+          </div>
         </div>
-            <footer>
-                <div class="summary-info">
-                    <span class="total-amount"> товара на сумму</span>
-                    <span class="total-price"></span>
-                </div>
-                <a class="a-order" href="order/order.html">
-                    <button class="order"><span>Оформить заказ</span></button>
-                </a>
-            </footer>
-        </div>
+        <div class="opacity-border-box"></div>
+      </aside>
+    </div>
+    <footer>
+      <div class="summary-info">
+        <span class="total-amount"> товара на сумму</span>
+        <span class="total-price"></span>
+      </div>
+      <a class="a-order" href="order/order.html">
+        <button class="order"><span>Оформить заказ</span></button>
+      </a>
+    </footer>
+  </div>
 
 </section>
 <header>
-    <div class="logo">
-        <a href="index.html">
-            <img class="icon" src="css/iconButton/logo.svg" alt="Логотип">
-        </a>
-    </div>
-    <a href="#" class="inCatalog catalogClose" aria-label="В каталог">
-        <button class="catalog">
-            <img class="icon" src="css/iconButton/cancel.svg" alt="Бургер">
-            <span>Каталог</span>
-        </button>
+  <div class="logo">
+    <a href="index.html">
+      <img class="icon" src="css/iconButton/logo.svg" alt="Логотип">
     </a>
-    <a href="#" class="inCatalog catalogOpen" aria-label="В каталог">
-        <button class="catalog">
-            <img class="icon" src="css/iconButton/threeLine.svg" alt="Бургер">
-            <span>Каталог</span>
-        </button>
+  </div>
+  <a href="#" class="inCatalog catalogClose" aria-label="В каталог">
+    <button class="catalog">
+      <img class="icon" src="css/iconButton/cancel.svg" alt="Бургер">
+      <span>Каталог</span>
+    </button>
+  </a>
+  <a href="#" class="inCatalog catalogOpen" aria-label="В каталог">
+    <button class="catalog">
+      <img class="icon" src="css/iconButton/threeLine.svg" alt="Бургер">
+      <span>Каталог</span>
+    </button>
+  </a>
+  <div class="search">
+    <label for="input-search" class="label-search">
+      <input name="search" id="input-search" type="text" required>
+      <span class="placeholder"><img src="css/iconButton/search.svg" alt="Лупа"> Поиск</span>
+      <span class="placeholder-table-version"><img src="css/iconButton/search.svg" alt="Лупа"> Поиск</span>
+      <button class="button-search">
+        <span>Найти</span>
+      </button>
+    </label>
+  </div>
+  <a href="mobilMenu.html" class="inCatalog-mobile" aria-label="В каталог">
+    <button class="catalog">
+      <img class="icon" src="css/iconButton/threeLine.svg" alt="Бургер">
+      <span>Каталог</span>
+    </button>
+  </a>
+  <nav class="nav-header">
+    <a href="#">
+      <img class="icon" src="css/iconButton/bonus.svg" alt="Бонусы">
+      <span>Бонусы</span>
     </a>
-    <div class="search">
-        <label for="input-search" class="label-search">
-            <input name="search" id="input-search" type="text" required>
-            <span class="placeholder"><img src="css/iconButton/search.svg" alt="Лупа"> Поиск</span>
-            <span class="placeholder-table-version"><img src="css/iconButton/search.svg" alt="Лупа"> Поиск</span>
-            <button class="button-search">
-                <span>Найти</span>
-            </button>
-        </label>
-    </div>
-    <a href="mobilMenu.html" class="inCatalog-mobile" aria-label="В каталог">
-        <button class="catalog">
-            <img class="icon" src="css/iconButton/threeLine.svg" alt="Бургер">
-            <span>Каталог</span>
-        </button>
+    <a href="#">
+      <img class="icon" src="css/iconButton/box.svg" alt="Заказы">
+      <span>Заказы</span>
     </a>
-    <nav class="nav-header">
-        <a href="#">
-            <img class="icon" src="css/iconButton/bonus.svg" alt="Бонусы">
-            <span>Бонусы</span>
-        </a>
-        <a href="#">
-            <img class="icon" src="css/iconButton/box.svg" alt="Заказы">
-            <span>Заказы</span>
-        </a>
-        <a href="#">
-            <img class="icon" src="css/iconButton/promo.svg" alt="Акции">
-            <span>Акции</span>
-        </a>
-        <a href="#" class="button-basket">
-            <img class="icon iconBox" src="css/iconButton/petHouse.svg" alt="Корзина">
-            <span class="box-info">Корзина </span>
-        </a>
-    </nav>
+    <a href="#">
+      <img class="icon" src="css/iconButton/promo.svg" alt="Акции">
+      <span>Акции</span>
+    </a>
+    <a href="#" class="button-basket">
+      <img class="icon iconBox" src="css/iconButton/petHouse.svg" alt="Корзина">
+      <span class="box-info">Корзина </span>
+    </a>
+  </nav>
 </header>
 <aside>
-    <img src="img/ChristmasTree.gif" alt="Ёлочка" class="StartHNY">
-    <img src="img/ChristmasTree.gif" alt="Ёлочка" class="StopHNY">
-    <nav class="breadcrumb-nav breadcrumbCatalogOpen">
-        <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров</a>
-    </nav>
-    <nav class="breadcrumb-nav breadcrumbCatalogClose">
-        <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров / Собачки</a>
-    </nav>
-    <main class="main">
-        <h1 class="dogsInCatalog">Собачки</h1>
-        <div class="opacity-border dogsInCatalog"></div>
-        <div class="container-catalog-button">
-            <a href="#" class="dog-button pet-buttons" aria-label="Фильтр - собачки">Собачки</a>
-            <a href="#" class="cat-button pet-buttons" aria-label="Фильтр - котики">Котики</a>
-        </div>
-        <a class="mobile-filter-open" href="mobileFilter.html" aria-label="К фильтру">
-            <p class="p-filter"><img src="css/iconButton/filter.svg" alt="Фильтр"> Фильтр</p>
-        </a>
-        <section class="base">
-            <aside class="filter item">
-                <form action="#" method="get" class="form">
-                    <h2 class="h2filter">Фильтр</h2>
-                    <div class="section-form">
-                        <h3 class="h3filter">Тип</h3>
-                        <a class="a-filter block-type" href="#">
-                            <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
-                        </a>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="hunter">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Охотничьи</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="companion">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Компаньоны</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="decorative">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Декоративные</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="service">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Служебные</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="section-form">
-                        <h3 class="h3filter">Основные черты</h3>
-                        <a class="a-filter block-features" href="#">
-                            <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
-                        </a>
-                        <div class="fast-search-wrapper">
-                            <img class="search-icon" src="css/iconButton/search.svg" alt="Лупа">
-                            <label><input type="text" class="fast-search" placeholder="Быстрый поиск"></label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="noFear">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Отсутствует чувство страха</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="shedsLittle">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Мало линяет</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="excellentHealth">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Отличное здоровье</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="goodObedience">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Хорошее послушание</span>
-                            </label>
-                        </div>
-                        <div class="label-container">
-                            <label class="label">
-                                <input type="checkbox" class="checkbox" id="veryDevoted">
-                                <span class="fake-checkbox"></span>
-                                <span class="text">Очень преданная</span>
-                            </label>
-                        </div>
-                        <a href="" class="a-filter-all">Показать все</a>
-                    </div>
-                    <div class="section-form-size">
-                        <a class="block-size a-filter" href="#">
-                            <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
-                        </a>
-                        <h3 class="h3filter">Размер</h3>
-                        <label>От <input type="number" class="pet-size-input" value="11"></label>
-                        <label>до <input type="number" class="pet-size-input" value="21"></label>
-                    </div>
-                </form>
-            </aside>
-            <div class="div-items">
-                <div class="product-section item" id="containerCardsItem">
-                    <div class="product-list__item" style="display: none">
-                        <a href="card.html?id=" class="container-product-item">
-                            <div class="img-div">
-                                <img src="#" alt="Собака" class="img-pet">
-                            </div>
-                            <p class="breed"></p>
-                            <p class="price"></p>
-                        </a>
-                        <div class="item-button-box">
-                            <button class="inBox" data-idcards="#"><span>В корзину</span></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="div-show-more">
-                    <button class="show-more"><span>Показать еще</span></button>
-                </div>
+<!--  <img src="img/ChristmasTree.gif" alt="Ёлочка" class="StartHNY">-->
+<!--  <img src="img/ChristmasTree.gif" alt="Ёлочка" class="StopHNY">-->
+  <nav class="breadcrumb-nav breadcrumbCatalogOpen">
+    <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров</a>
+  </nav>
+  <nav class="breadcrumb-nav breadcrumbCatalogClose">
+    <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров / Собачки</a>
+  </nav>
+  <main class="main">
+    <h1 class="dogsInCatalog">Собачки</h1>
+    <div class="opacity-border dogsInCatalog"></div>
+    <div class="container-catalog-button">
+      <a href="#" class="dog-button pet-buttons" aria-label="Фильтр - собачки">Собачки</a>
+      <a href="#" class="cat-button pet-buttons" aria-label="Фильтр - котики">Котики</a>
+    </div>
+    <a class="mobile-filter-open" href="#" aria-label="К фильтру">
+      <p class="p-filter"><img src="css/iconButton/filter.svg" alt="Фильтр"> Фильтр</p>
+    </a>
+    <section class="base">
+      <aside class="filter item">
+        <form action="#" method="get" class="form">
+          <h2 class="h2filter">
+            <a class="filter-img" href="#" aria-label="Выдти из фильтра">
+              <img src="css/iconButton/exitFilter.svg" alt="Выдти из фильтра">
+            </a>
+            Фильтр</h2>
+          <div class="section-form">
+            <h3 class="h3filter">Тип</h3>
+            <a class="a-filter block-type" href="#">
+              <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
+            </a>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="hunter">
+                <span class="fake-checkbox"></span>
+                <span class="text">Охотничьи</span>
+              </label>
             </div>
-        </section>
-    </main>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="companion">
+                <span class="fake-checkbox"></span>
+                <span class="text">Компаньоны</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="decorative">
+                <span class="fake-checkbox"></span>
+                <span class="text">Декоративные</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="service">
+                <span class="fake-checkbox"></span>
+                <span class="text">Служебные</span>
+              </label>
+            </div>
+          </div>
+          <div class="section-form">
+            <h3 class="h3filter">Основные черты</h3>
+            <a class="a-filter block-features" href="#">
+              <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
+            </a>
+            <div class="fast-search-wrapper">
+              <img class="search-icon" src="css/iconButton/search.svg" alt="Лупа">
+              <label><input type="text" class="fast-search" placeholder="Быстрый поиск"></label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="noFear">
+                <span class="fake-checkbox"></span>
+                <span class="text">Отсутствует чувство страха</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="shedsLittle">
+                <span class="fake-checkbox"></span>
+                <span class="text">Мало линяет</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="excellentHealth">
+                <span class="fake-checkbox"></span>
+                <span class="text">Отличное здоровье</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="goodObedience">
+                <span class="fake-checkbox"></span>
+                <span class="text">Хорошее послушание</span>
+              </label>
+            </div>
+            <div class="label-container">
+              <label class="label">
+                <input type="checkbox" class="checkbox" id="veryDevoted">
+                <span class="fake-checkbox"></span>
+                <span class="text">Очень преданная</span>
+              </label>
+            </div>
+            <a href="" class="a-filter-all">Показать все</a>
+          </div>
+          <div class="section-form-size">
+            <a class="block-size a-filter" href="#">
+              <img src="css/iconButton/closeSectionFilter.svg" alt="свернуть">
+            </a>
+            <h3 class="h3filter">Размер</h3>
+            <label>От <input type="number" class="pet-size-input" value="11"></label>
+            <label>до <input type="number" class="pet-size-input" value="21"></label>
+          </div>
+        </form>
+      </aside>
+      <div class="div-items">
+        <div class="product-section item" id="containerCardsItem">
+          <div class="product-list__item" style="display: none">
+            <a href="card.html?id=" class="container-product-item">
+              <div class="img-div">
+                <img src="#" alt="Собака" class="img-pet">
+              </div>
+              <p class="breed"></p>
+              <p class="price"></p>
+            </a>
+            <div class="item-button-box">
+              <button class="inBox" data-idcards="#"><span>В корзину</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="div-show-more">
+          <button class="show-more"><span>Показать еще</span></button>
+        </div>
+      </div>
+    </section>
+  </main>
 </aside>
 </body>
 </html>

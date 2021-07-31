@@ -1,49 +1,60 @@
-let inCatalog = document.querySelector('.catalogOpen');
-let outCatalog = document.querySelector('.catalogClose');
-let catalogButton = document.querySelector('.container-catalog-button');
-let dogsInCatalog = document.querySelector('.dogsInCatalog');
-let breadcrumb = document.querySelector('.breadcrumb');
-let breadcrumbCatalogOpen = document.querySelector('.breadcrumbCatalogOpen');
-let breadcrumbCatalogClose = document.querySelector('.breadcrumbCatalogClose');
+const inCatalog = document.querySelector('.catalogOpen');
+const outCatalog = document.querySelector('.catalogClose');
+const catalogButton = document.querySelector('.container-catalog-button');
+const dogsInCatalog = document.querySelector('.dogsInCatalog');
+const breadcrumb = document.querySelector('.breadcrumb');
+const breadcrumbCatalogOpen = document.querySelector('.breadcrumbCatalogOpen');
+const breadcrumbCatalogClose = document.querySelector('.breadcrumbCatalogClose');
+const filterButton = document.querySelector('.p-filter');
+const filter = document.querySelector('.filter');
+const items = document.querySelector('.div-items');
+const showMore = document.querySelector('.div-show-more');
+const closeFilter = document.querySelector('.filter-img');
 
 inCatalog.addEventListener('click', () => {
-    console.log('хотят в каталог');
-    inCatalog.style.display = "none";
-    outCatalog.style.display = "block";
-    catalogButton.style.display = "grid";
-    dogsInCatalog.style.display = "none";
-    breadcrumbCatalogOpen.style.display = 'block';
-    breadcrumbCatalogClose.style.display = 'none';
+  catalogIn();
 });
 
 breadcrumbCatalogClose.addEventListener('click', () => {
-    console.log('хотят в каталог');
-    inCatalog.style.display = "none";
-    outCatalog.style.display = "block";
-    catalogButton.style.display = "grid";
-    dogsInCatalog.style.display = "none";
-    breadcrumbCatalogOpen.style.display = 'block';
-    breadcrumbCatalogClose.style.display = 'none';
+  catalogIn();
 });
 
 outCatalog.addEventListener('click', () => {
-    console.log('хотят на главную');
-    inCatalog.style.display = "block";
-    outCatalog.style.display = "none";
-    catalogButton.style.display = "none";
-    dogsInCatalog.style.display = "block";
-    breadcrumb.textContent = 'Каталог товаров';
-    breadcrumbCatalogOpen.style.display = 'none';
-    breadcrumbCatalogClose.style.display = 'block';
+  catalogOut();
 });
 
 breadcrumbCatalogOpen.addEventListener('click', () => {
-    console.log('хотят на главную');
-    inCatalog.style.display = "block";
-    outCatalog.style.display = "none";
-    catalogButton.style.display = "none";
-    dogsInCatalog.style.display = "block";
-    breadcrumb.textContent = 'Каталог товаров';
-    breadcrumbCatalogOpen.style.display = 'none';
-    breadcrumbCatalogClose.style.display = 'block';
+  catalogOut();
 });
+
+const catalogIn = () => {
+  inCatalog.style.display = "none";
+  outCatalog.style.display = "block";
+  catalogButton.style.display = "grid";
+  dogsInCatalog.style.display = "none";
+  breadcrumbCatalogOpen.style.display = 'block';
+  breadcrumbCatalogClose.style.display = 'none';
+};
+
+const catalogOut = () => {
+  inCatalog.style.display = "block";
+  outCatalog.style.display = "none";
+  catalogButton.style.display = "none";
+  dogsInCatalog.style.display = "block";
+  breadcrumb.textContent = 'Каталог товаров';
+  breadcrumbCatalogOpen.style.display = 'none';
+  breadcrumbCatalogClose.style.display = 'block';
+}
+
+filterButton.addEventListener('click', () => {
+  filter.style.display = 'block';
+  items.style.display = 'none';
+  filterButton.style.display = 'none';
+  // showMore.style.display =
+});
+
+closeFilter.addEventListener('click', () => {
+  filter.style.display = 'none';
+  items.style.display = 'block';
+  filterButton.style.display = 'block';
+})
