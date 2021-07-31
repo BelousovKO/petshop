@@ -42,6 +42,7 @@ body .row-items {
 
 .header-box {
     padding-bottom: 26px;
+    position: static;
 }
 
 .header-box,

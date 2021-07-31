@@ -9,7 +9,6 @@ export class Box {
     addItem(item) {
         this.itemInBox.push(item);
         this.drawBoxCard(item);
-        // console.log('массив с собаками', this.itemInBox);
         this.countingAllAmounts();
     }
 

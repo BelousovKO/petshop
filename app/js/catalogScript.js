@@ -13,6 +13,9 @@ const closeFilter = document.querySelector('.filter-img');
 const buttonMobileMenu = document.querySelector('.inCatalog-mobile');
 const mobileMenu = document.querySelector('.mobile-menu');
 const exitMobileMenu = document.querySelector('.out-mobile-menu');
+const buttonMobileBox = document.querySelector('.button-in-box');
+const sectionBox = document.querySelector('.section-box');
+const shadowBox = document.querySelector('.shadow-box');
 
 inCatalog.addEventListener('click', () => {
   catalogIn();
@@ -71,4 +74,12 @@ exitMobileMenu.addEventListener('click', () => {
   exitMobileMenu.style.display = 'none';
   buttonMobileMenu.style.display = 'block';
   mobileMenu.style.display = 'none';
+});
+
+buttonMobileBox.addEventListener('click', () => {
+  exitMobileMenu.style.display = 'none';
+  buttonMobileMenu.style.display = 'block';
+  mobileMenu.style.display = 'none';
+  sectionBox.style.display = "block";
+  shadowBox.style.display = "block";
 })

@@ -11,18 +11,19 @@ xhr.send();
 
 export const box = new Box();
 
-export function initOnload() {
+const buttonBox = document.querySelector('.button-basket');
+const sectionBox = document.querySelector('.section-box');
+const shadowBox = document.querySelector('.shadow-box');
+const exitBox = document.querySelector('.exit-box');
+const boxInfo = document.querySelector('.box-info');
+const containerRowItem = document.querySelector('.collections-row-items');
+const totalPrice = document.querySelector('.total-price');
+const sumIconBox = document.querySelector('.sum-icon-box');
+const h1Box = document.querySelector('.h1-box');
+const delAll = document.querySelector('.del-all');
 
-    let buttonBox = document.querySelector('.button-basket');
-    let sectionBox = document.querySelector('.section-box');
-    let shadowBox = document.querySelector('.shadow-box');
-    let exitBox = document.querySelector('.exit-box');
-    let boxInfo = document.querySelector('.box-info');
-    let containerRowItem = document.querySelector('.collections-row-items');
-    let totalPrice = document.querySelector('.total-price');
-    let sumIconBox = document.querySelector('.sum-icon-box');
-    let h1Box = document.querySelector('.h1-box');
-    let delAll = document.querySelector('.del-all');
+
+export function initOnload() {
     let sumTotalPrice;
     let boxCount;
 
@@ -59,19 +60,18 @@ export function initOnload() {
 export function initButtonActions(temp) {
     let infoCards;
     if (!temp) {
-        let temp = xhr.responseText;
-        infoCards = JSON.parse(temp);
+        infoCards = JSON.parse(xhr.responseText);
     } else {
         infoCards = temp;
     }
-    let iconBox = document.querySelector('.iconBox');
-    let inBox = document.querySelectorAll('.inBox');
-    let boxInfo = document.querySelector('.box-info');
-    let totalAmount = document.querySelector('.total-amount');
-    let containerRowItem = document.querySelector('.collections-row-items');
-    let totalPrice = document.querySelector('.total-price');
-    let sumIconBox = document.querySelector('.sum-icon-box');
-    let h1Box = document.querySelector('.h1-box');
+    const iconBox = document.querySelector('.iconBox');
+    const inBox = document.querySelectorAll('.inBox');
+    const boxInfo = document.querySelector('.box-info');
+    const totalAmount = document.querySelector('.total-amount');
+    const containerRowItem = document.querySelector('.collections-row-items');
+    const totalPrice = document.querySelector('.total-price');
+    const sumIconBox = document.querySelector('.sum-icon-box');
+    const h1Box = document.querySelector('.h1-box');
     let hitCounterDogs = 0;
 
     inBox.forEach((inBoxItem) => {

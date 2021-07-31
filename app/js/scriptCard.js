@@ -1,9 +1,9 @@
 const DiseasesRequest = new XMLHttpRequest();
 
-let Diseases
+let diseases
 
 DiseasesRequest.onload = function (e) {
-  Diseases = JSON.parse(DiseasesRequest.responseText);
+  diseases = JSON.parse(DiseasesRequest.responseText);
 };
 
 DiseasesRequest.open("GET", "http://localhost:3000/api/directoryDiseases.json", true);
@@ -12,7 +12,7 @@ DiseasesRequest.send();
 const xhr = new XMLHttpRequest();
 
 xhr.onload = function (e) {
-  init();
+  setTimeout(init, 0);
 };
 
 xhr.open("GET", "http://localhost:3000/api/dataCards.json", true);
@@ -28,7 +28,7 @@ function init() {
   const subtypes = parentItem.querySelector('#subtypes');
   const intelligence = parentItem.querySelector('#intelligence');
   const price = document.querySelector('.price');
-  const diseases = parentItem.querySelector('#diseases');
+  const illness = parentItem.querySelector('#illness');
 
   infoCards.forEach(itemCard => {
     if (Number(id) === Number(itemCard.id)) {
@@ -82,9 +82,9 @@ function init() {
 
       price.textContent = itemCard.price;
 
-      diseases.textContent = '';
+      illness.textContent = '';
       for (let i = 0; i < infoCards[id].frequentIllnesses.length; i++) {
-        diseases.textContent = diseases.textContent + " " + Diseases[infoCards[id].frequentIllnesses[i]];
+        illness.textContent = illness.textContent + " " + diseases[infoCards[id].frequentIllnesses[i]];
       }
     }
   });

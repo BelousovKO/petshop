@@ -179,7 +179,7 @@ function initOnload1() {
         const fragment = document.createDocumentFragment();
         randomSortCards.forEach((resultFilter) => {
             const item = template.cloneNode(true);
-            item.querySelector('a').href = `cards/card.html?id=${resultFilter.id}`;
+            item.querySelector('a').href = `card.html?id=${resultFilter.id}`;
             item.querySelector('img').src = resultFilter.img;
             item.querySelector('.breed').textContent = resultFilter.breed;
             item.querySelector('.price').textContent = `${resultFilter.price}₽`;
