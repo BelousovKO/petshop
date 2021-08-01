@@ -1,14 +1,15 @@
-import {initButtonActions} from '../js/boxScript.js';
+import * as boxScript from './boxScript.js';
+
 const xhr = new XMLHttpRequest();
 
 xhr.onload = function () {
-    initOnload1();
+    initOnload();
 };
 
 xhr.open("GET", "http://localhost:3000/api/dataCards.json", true);
 xhr.send();
 
-function initOnload1() {
+function initOnload() {
 
     const infoCards = JSON.parse(xhr.responseText);
     const parentItem = document.querySelector('.product-section');
@@ -62,7 +63,6 @@ function initOnload1() {
         item.style.display = "block";
         document.querySelector('.product-section').appendChild(fragment);
     });
-    initButtonActions(infoCards)
 
     template.style.display = "none";
     menuFilter.style.display = "none";
@@ -190,7 +190,7 @@ function initOnload1() {
         });
         template.style.display = "none";
         menuFilter.style.display = "none";
-        initButtonActions(infoCards)
+        boxScript.initOnload();
     })
 }
 

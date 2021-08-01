@@ -1,95 +1,86 @@
 export class Box {
-    constructor() {
-    }
+  constructor() {
+  }
 
-    sumTotalPrice = 0;
-    boxCount = 0;
-    itemInBox = [];
+  sumTotalPrice = 0;
+  boxCount = 0;
+  itemInBox = [];
+  inBoxLS = {};
 
-    addItem(item) {
-        this.itemInBox.push(item);
-        this.drawBoxCard(item);
-        this.countingAllAmounts();
-    }
-
-    clearBox() {
-        this.itemInBox = [];
-        this.boxCount = 0;
+  synchronizationBox(infoCards) {
+    const rowItems = document.querySelectorAll('.row-items');
+    const mainBox = document.querySelector('.main-box');
+    const totalPrice = document.querySelector('.total-price');
+    totalPrice.textContent = '';
+    if(localStorage.getItem('inBox')) {
+      rowItems.forEach((elem, idx) => {
+        if(idx !== 0) mainBox.removeChild(mainBox.lastChild);
+      });
+      this.inBoxLS = JSON.parse(localStorage.getItem('inBox'));
+      for(let item in this.inBoxLS) {
         this.sumTotalPrice = 0;
-    }
-
-    drawBoxCard(item) {
-        this.sumTotalPrice = 0;
-        let templateBox = document.querySelector('.row-items');
+        const templateBox = document.querySelector('.row-items');
         const itemBox = templateBox.cloneNode(true);
-        let sumIconBox = document.querySelector('.sum-icon-box');
-        let totalPrice = document.querySelector('.total-price');
-        let invisiblePrice = itemBox.querySelector('.invisible-price');
+        document.querySelector('.collections-row-items').style.display = 'block';
         templateBox.style.display = "none";
-        itemBox.dataset.idcards = item.id;
-        itemBox.querySelector('.photo-pet-box').src = item.img;
-        itemBox.querySelector('.breed-box').textContent = item.breed;
-        itemBox.querySelector('.price-box').textContent = item.price;
-        itemBox.querySelector('.del-item').dataset.idcards = item.id;
-        itemBox.querySelector('.quantity-breed').dataset.idcards = item.id;
-        itemBox.querySelector('.invisible-price').dataset.idcards = item.id;
-        let quantityBreed = itemBox.querySelector('.quantity-breed');
-        let plus = itemBox.querySelector('.plus');
-        plus.addEventListener('click', () => {
-            quantityBreed.textContent++;
-            this.countingAllAmounts()
-        })
-        let minus = itemBox.querySelector('.minus');
-        minus.addEventListener('click', () => {
-            quantityBreed.textContent--;
-            if (Number(quantityBreed.textContent) === 0) {
-                itemBox.parentNode.removeChild(itemBox);
-            }
-            this.countingAllAmounts()
-        })
-
-        this.sumTotalPrice = this.sumTotalPrice + item.price;
-        totalPrice.textContent = `${this.sumTotalPrice}₽`;
-        invisiblePrice.textContent = item.price;
-        itemBox.style.display = "block";
-        sumIconBox.textContent = `на сумму ${this.sumTotalPrice}`;
-        sumIconBox.style.display = "block";
+        itemBox.style.display = 'block';
+        itemBox.dataset.idcards = item;
+        itemBox.querySelector('.photo-pet-box').src = infoCards[+item].img;
+        itemBox.querySelector('.breed-box').textContent = infoCards[+item].breed;
+        itemBox.querySelector('.price-box').textContent = this.inBoxLS[item] * infoCards[+item].price;
+        itemBox.querySelector('.del-item').dataset.idcards = infoCards[+item].id;
+        itemBox.querySelector('.quantity-breed').dataset.idcards = infoCards[+item].id;
+        itemBox.querySelector('.quantity-breed').textContent = this.inBoxLS[item];
+        itemBox.querySelector('.invisible-price').dataset.idcards = infoCards[+item].id;
+        itemBox.querySelector('.plus').dataset.idcards = infoCards[+item].id;
+        itemBox.querySelector('.minus').dataset.idcards = infoCards[+item].id;
+        totalPrice.textContent = +totalPrice.textContent + infoCards[+item].price * this.inBoxLS[item];
         document.querySelector('.main-box').appendChild(itemBox);
+      }
+      totalPrice.textContent += ` ₽`
+      document.querySelector('.h1-box').textContent = 'Ваша карзина';
+    } else {
+      document.querySelector('.h1-box').textContent = 'Ваша карзина пуста';
+      rowItems.forEach((elem, idx) => {
+        if(idx !== 0) mainBox.removeChild(mainBox.lastChild);
+      });
+      document.querySelector('.collections-row-items').style.display = 'none';
     }
-
-    countingAllAmounts() {
-        this.sumTotalPrice = 0;
-        let quantityItemInBox = 0;
-        let containerRowItem = document.querySelector('.collections-row-items');
-        let rowItems = containerRowItem.querySelectorAll('.row-items');
-        let sumPrice = 0;
-        let totalPrice = document.querySelector('.total-price');
-        let sumIconBox = document.querySelector('.sum-icon-box');
-        let totalAmount = document.querySelector('.total-amount');
-        let h1Box = document.querySelector('.h1-box');
-        let boxInfo = document.querySelector('.box-info');
-
-        rowItems.forEach((rowItem) => {
-            let quantityBreed = rowItem.querySelector('.quantity-breed');
-            let priceBox = rowItem.querySelector('.price-box');
-            let invisiblePrice = rowItem.querySelector('.invisible-price');
-            if (quantityBreed.dataset.idcards) {
-                priceBox.textContent = invisiblePrice.textContent * quantityBreed.textContent;
-                sumPrice = Number(priceBox.textContent);
-                this.sumTotalPrice = this.sumTotalPrice + sumPrice;
-                quantityItemInBox = quantityItemInBox + Number(quantityBreed.textContent);
-                totalAmount.textContent = `${quantityItemInBox} товара(ов) на сумму: `;
-            }
-        });
-        if (this.sumTotalPrice === 0) {
-            sumIconBox.style.display = "none";
-            containerRowItem.style.display = "none";
-            h1Box.textContent = "Ваша корзина пуста";
-            this.boxCount = 0;
-            boxInfo.textContent = `Корзина`;
+    const delItem = document.querySelectorAll('.del-item');
+    delItem.forEach(elem => {
+      elem.addEventListener('click', () => {
+        delete this.inBoxLS[elem.dataset.idcards];
+        if(Object.keys(this.inBoxLS).length) {
+          localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        } else {
+          localStorage.removeItem('inBox');
         }
-        totalPrice.textContent = `${this.sumTotalPrice}₽`;
-        sumIconBox.textContent = `на сумму ${this.sumTotalPrice}₽`;
-        boxInfo.textContent = `Корзина (${quantityItemInBox})`;
-    }
+        this.synchronizationBox(infoCards);
+      })
+    });
+    const allPlus = document.querySelectorAll('.plus');
+    allPlus.forEach(plus => {
+      plus.addEventListener('click', () => {
+        this.inBoxLS[plus.dataset.idcards] += 1;
+        localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        this.synchronizationBox(infoCards);
+      })
+    });
+    const allMinus = document.querySelectorAll('.minus');
+    allMinus.forEach(minus => {
+      minus.addEventListener('click', () => {
+        this.inBoxLS[minus.dataset.idcards] -= 1;
+        if(this.inBoxLS[minus.dataset.idcards] === 0) {
+          delete this.inBoxLS[minus.dataset.idcards];
+        }
+        if(Object.keys(this.inBoxLS).length === 0) {
+          localStorage.removeItem('inBox');
+        } else {
+          localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        }
+
+        this.synchronizationBox(infoCards);
+      });
+    });
+  }
 }
