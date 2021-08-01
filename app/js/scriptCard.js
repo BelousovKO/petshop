@@ -29,6 +29,11 @@ function init() {
   const intelligence = parentItem.querySelector('#intelligence');
   const price = document.querySelector('.price');
   const illness = parentItem.querySelector('#illness');
+  const inMobileMenu = document.querySelector('.inCatalog-mobile');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const closeMobileMenu = document.querySelector('.out-mobile-menu');
+  const buttonInBox = document.querySelector('.button-in-box');
+  const boxModal = document.querySelector('.section-box');
 
   infoCards.forEach(itemCard => {
     if (Number(id) === Number(itemCard.id)) {
@@ -89,4 +94,22 @@ function init() {
     }
   });
 
+  inMobileMenu.addEventListener('click', () => {
+    mobileMenu.style.display = 'block';
+    inMobileMenu.style.display = 'none';
+    closeMobileMenu.style.display = 'block';
+  });
+
+  closeMobileMenu.addEventListener('click', () => {
+    mobileMenu.style.display = 'none';
+    inMobileMenu.style.display = 'block';
+    closeMobileMenu.style.display = 'none';
+  })
+
+  buttonInBox.addEventListener('click', () => {
+    boxModal.style.display = 'block';
+    mobileMenu.style.display = 'none';
+    inMobileMenu.style.display = 'block';
+    closeMobileMenu.style.display = 'none';
+  })
 }
