@@ -11,13 +11,16 @@ export class Box {
     const rowItems = document.querySelectorAll('.row-items');
     const mainBox = document.querySelector('.main-box');
     const totalPrice = document.querySelector('.total-price');
+    const boxInfo = document.querySelectorAll('.box-info');
+    const sumIconBox = document.querySelector('.sum-icon-box');
     totalPrice.textContent = '';
-    if(localStorage.getItem('inBox')) {
+    this.boxCount = 1;
+    if (localStorage.getItem('inBox')) {
       rowItems.forEach((elem, idx) => {
-        if(idx !== 0) mainBox.removeChild(mainBox.lastChild);
+        if (idx !== 0) mainBox.removeChild(mainBox.lastChild);
       });
       this.inBoxLS = JSON.parse(localStorage.getItem('inBox'));
-      for(let item in this.inBoxLS) {
+      for (let item in this.inBoxLS) {
         this.sumTotalPrice = 0;
         const templateBox = document.querySelector('.row-items');
         const itemBox = templateBox.cloneNode(true);
@@ -35,14 +38,19 @@ export class Box {
         itemBox.querySelector('.plus').dataset.idcards = infoCards[+item].id;
         itemBox.querySelector('.minus').dataset.idcards = infoCards[+item].id;
         totalPrice.textContent = +totalPrice.textContent + infoCards[+item].price * this.inBoxLS[item];
+        this.boxCount = Object.values(this.inBoxLS).reduce((acc, elem) => acc + +elem, 0);
+        boxInfo.forEach(elem => elem.textContent = `Корзина(${this.boxCount})`);
         document.querySelector('.main-box').appendChild(itemBox);
       }
-      totalPrice.textContent += ` ₽`
+      totalPrice.textContent += ` ₽`;
+      sumIconBox.textContent = `на сумму ${totalPrice.textContent}`;
+      sumIconBox.style.display = 'block';
+      console.log(sumIconBox);
       document.querySelector('.h1-box').textContent = 'Ваша карзина';
     } else {
       document.querySelector('.h1-box').textContent = 'Ваша карзина пуста';
       rowItems.forEach((elem, idx) => {
-        if(idx !== 0) mainBox.removeChild(mainBox.lastChild);
+        if (idx !== 0) mainBox.removeChild(mainBox.lastChild);
       });
       document.querySelector('.collections-row-items').style.display = 'none';
     }
@@ -50,12 +58,20 @@ export class Box {
     delItem.forEach(elem => {
       elem.addEventListener('click', () => {
         delete this.inBoxLS[elem.dataset.idcards];
-        if(Object.keys(this.inBoxLS).length) {
+        if (Object.keys(this.inBoxLS).length) {
           localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
         } else {
           localStorage.removeItem('inBox');
+          boxInfo.forEach(elem => elem.textContent = `Корзина`);
+          sumIconBox.style.display = 'none';
         }
         this.synchronizationBox(infoCards);
+        this.boxCount = Object.values(this.inBoxLS).reduce((acc, elem) => acc + +elem, 0);
+        if(this.boxCount === 0) {
+          boxInfo.forEach(elem => elem.textContent = `Корзина`);
+        } else {
+          boxInfo.forEach(elem => elem.textContent = `Корзина(${this.boxCount})`);
+        }
       })
     });
     const allPlus = document.querySelectorAll('.plus');
@@ -70,15 +86,16 @@ export class Box {
     allMinus.forEach(minus => {
       minus.addEventListener('click', () => {
         this.inBoxLS[minus.dataset.idcards] -= 1;
-        if(this.inBoxLS[minus.dataset.idcards] === 0) {
+        if (this.inBoxLS[minus.dataset.idcards] === 0) {
           delete this.inBoxLS[minus.dataset.idcards];
         }
-        if(Object.keys(this.inBoxLS).length === 0) {
+        if (Object.keys(this.inBoxLS).length === 0) {
           localStorage.removeItem('inBox');
+          sumIconBox.style.display = 'none';
+          boxInfo.forEach(elem => elem.textContent = `Корзина`);
         } else {
           localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
         }
-
         this.synchronizationBox(infoCards);
       });
     });
