@@ -38,14 +38,14 @@ export class Box {
         itemBox.querySelector('.plus').dataset.idcards = infoCards[+item].id;
         itemBox.querySelector('.minus').dataset.idcards = infoCards[+item].id;
         totalPrice.textContent = +totalPrice.textContent + infoCards[+item].price * this.inBoxLS[item];
+        document.querySelector('.main-box').appendChild(itemBox);
         this.boxCount = Object.values(this.inBoxLS).reduce((acc, elem) => acc + +elem, 0);
         boxInfo.forEach(elem => elem.textContent = `Корзина(${this.boxCount})`);
-        document.querySelector('.main-box').appendChild(itemBox);
+
       }
       totalPrice.textContent += ` ₽`;
       sumIconBox.textContent = `на сумму ${totalPrice.textContent}`;
       sumIconBox.style.display = 'block';
-      console.log(sumIconBox);
       document.querySelector('.h1-box').textContent = 'Ваша карзина';
     } else {
       document.querySelector('.h1-box').textContent = 'Ваша карзина пуста';

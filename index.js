@@ -1,7 +1,5 @@
 const browserSync = require('browser-sync');
 
-// вызываем эту функцию
-
 browserSync({
 
     server: "app",

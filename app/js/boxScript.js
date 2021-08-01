@@ -21,10 +21,10 @@ const sumIconBox = document.querySelector('.sum-icon-box');
 let inBoxLS;
 
 export function initOnload() {
+
   const infoCards = JSON.parse(xhr.responseText);
   const addEventsButtonInBox = () => {
     const buttonInBox = document.querySelectorAll('.inBox');
-
     buttonInBox.forEach(button => button.addEventListener('click', () => {
       if(localStorage.getItem('inBox')) {
         inBoxLS = JSON.parse(localStorage.getItem('inBox'));
@@ -38,7 +38,6 @@ export function initOnload() {
         inBoxLS = {[button.dataset.idcards]: 1}
         localStorage.setItem('inBox', JSON.stringify(inBoxLS));
       }
-
       iconBox.style.transform = "scale(1.3)";
       iconBox.style.borderRadius = '50%';
       iconBox.style.backgroundColor = "#FBBA3C";
@@ -51,7 +50,8 @@ export function initOnload() {
       box.synchronizationBox(infoCards);
     }));
   }
-  setTimeout(addEventsButtonInBox, 0)
+
+  setTimeout(addEventsButtonInBox, 1000);
   box.synchronizationBox(infoCards);
 }
 
@@ -71,7 +71,7 @@ const closeAndOpenBox = () => {
     sectionBox.style.display = "block";
     shadowBox.style.display = "block";
   }
-}
+};
 
 buttonDelAll.addEventListener('click', () => {
   localStorage.removeItem('inBox');
@@ -79,4 +79,6 @@ buttonDelAll.addEventListener('click', () => {
   boxInfo.forEach(elem => elem.textContent = `Корзина`);
   sumIconBox.style.display = 'none';
   box.synchronizationBox();
-})
+});
+
+
