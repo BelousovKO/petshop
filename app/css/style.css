@@ -56,7 +56,7 @@ aside {
     display: block;
 }
 
-.div-items {
+.container-items-in-catalog {
     display: block;
 }
 
@@ -295,7 +295,7 @@ h1 {
         padding: 10px;
     }
 
-    .form {
+    .filter-form {
         margin: 0 auto;
     }
 

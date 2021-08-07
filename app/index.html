@@ -11,83 +11,11 @@
   <link rel="stylesheet" href="css/catalogStyle.css">
   <link rel="stylesheet" href="css/headerStyle.css">
   <link rel="stylesheet" href="css/styleBox.css">
-  <script type="module" src="js/filterMenu.js" defer></script>
+  <script type="module" src="js/script.js" defer></script>
   <script type="module" src="js/catalogScript.js" defer></script>
   <script type="module" src="js/boxScript.js" defer></script>
 </head>
 <body>
-<div class="sum-icon-box"></div>
-<div class="shadow-box"></div>
-<section class="section-box">
-  <header class="header-box">
-    <div class="h1-div">
-      <span class="h1-box">Ваша корзина пуста</span>
-    </div>
-    <a class="exit-div" href="#" aria-label="Выход">
-      <img src="css/iconButton/cancel.svg" alt="Выход" class="exit-box">
-    </a>
-  </header>
-  <div class="collections-row-items">
-    <div class="main-box">
-      <aside class="all-menu">
-        <div class="check-all-container">
-          <label class="label">
-            <input type="checkbox" class="checkbox">
-            <span class="fake-checkbox"></span>
-            <span class="del-all-checkbox">Выбрать всё</span>
-          </label>
-        </div>
-        <div class="del-all-container">
-          <a href="#" aria-label="Удалить всё" class="button-del-all">Удалить всё
-            <img src="css/iconButton/delete.svg" alt="Удалить всё" class="del-all">
-          </a>
-        </div>
-      </aside>
-      <div class="opacity-border-box"></div>
-      <aside class="row-items">
-        <div class="container-item">
-          <div class="info-item">
-            <label class="label">
-              <input type="checkbox" class="checkbox">
-              <span class="fake-checkbox"></span>
-            </label>
-            <span class="photo-pet-span">
-                        <img src="#" alt="Фото питомца" class="photo-pet-box">
-                    </span>
-          </div>
-          <div class="bred-calc">
-            <span class="breed-box"></span>
-            <div class="calk-container">
-              <button class="calk minus" name="minus">-</button>
-              <output name="quantity-breed" class="quantity-breed">1</output>
-              <button class="calk plus" name="plus">+</button>
-            </div>
-          </div>
-          <div class="del-item-container">
-            <div class="price-del-item">
-              <span class="price-box"></span><span class="invisible-price"></span>
-              <span style="font-size: 20px; font-weight: 600;">₽</span>
-              <a href="#" aria-label="Удалить всё">
-                <img src="css/iconButton/delete.svg" alt="Удалить пароду" class="del-item">
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="opacity-border-box"></div>
-      </aside>
-    </div>
-    <footer>
-      <div class="summary-info">
-        <span class="total-amount">товаров на сумму</span>
-        <span class="total-price"></span>
-      </div>
-      <a class="a-order" href="order/order.html">
-        <button class="order"><span>Оформить заказ</span></button>
-      </a>
-    </footer>
-  </div>
-
-</section>
 <header>
   <div class="logo">
     <a href="index.html">
@@ -145,31 +73,17 @@
     </button>
   </a>
 </header>
-<aside class="mobile-menu">
-  <a href="#">
-    <img class="icon" src="css/iconButton/bonus.svg" alt="Бонусы">
-    <span>Бонусы</span>
-  </a>
-  <a href="#">
-    <img class="icon" src="css/iconButton/box.svg" alt="Заказы">
-    <span>Заказы</span>
-  </a>
-  <a href="#">
-    <img class="icon" src="css/iconButton/promo.svg" alt="Акции">
-    <span>Акции</span>
-  </a>
-  <a href="#" class="button-in-box">
-    <img class="icon" src="css/iconButton/petHouse.svg" alt="Корзина">
-    <span class="box-info">Корзина</span>
-  </a>
-</aside>
 <aside>
+
+  <!--хлебные крошки-->
+
   <nav class="breadcrumb-nav breadcrumbCatalogOpen">
     <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров</a>
   </nav>
   <nav class="breadcrumb-nav breadcrumbCatalogClose">
     <a class="breadcrumb" href="#" aria-label="Вернуться">Каталог товаров / Собачки</a>
   </nav>
+
   <main class="main">
     <h1 class="dogsInCatalog">Собачки</h1>
     <div class="opacity-border dogsInCatalog"></div>
@@ -177,12 +91,17 @@
       <a href="#" class="dog-button pet-buttons" aria-label="Фильтр - собачки">Собачки</a>
       <a href="#" class="cat-button pet-buttons" aria-label="Фильтр - котики">Котики</a>
     </div>
+
     <a class="mobile-filter-open" href="#" aria-label="К фильтру">
       <p class="p-filter"><img src="css/iconButton/filter.svg" alt="Фильтр"> Фильтр</p>
     </a>
+
     <section class="base">
+
+      <!--форма фильтра-->
+
       <aside class="filter item">
-        <form action="#" method="get" class="form">
+        <form action="#" method="get" class="filter-form">
           <h2 class="h2filter">
             <a class="filter-img" href="#" aria-label="Выдти из фильтра">
               <img src="css/iconButton/exitFilter.svg" alt="Выдти из фильтра">
@@ -278,9 +197,16 @@
           </div>
         </form>
       </aside>
-      <div class="div-items">
-        <div class="product-section item" id="containerCardsItem">
-          <div class="product-list__item" style="display: none">
+
+      <!--блок с карточками товаров-->
+
+      <div class="container-items-in-catalog">
+        <div class="product-section item"></div>
+
+        <!--шаблон карточки товара-->
+
+        <template class="template-item-catalog">
+          <div class="product-list__item">
             <a href="card.html?id=" class="container-product-item">
               <div class="img-div">
                 <img src="#" alt="Собака" class="img-pet">
@@ -292,7 +218,8 @@
               <button class="inBox" data-idcards="#"><span>В корзину</span></button>
             </div>
           </div>
-        </div>
+        </template>
+
         <div class="div-show-more">
           <button class="show-more"><span>Показать еще</span></button>
         </div>
@@ -300,5 +227,104 @@
     </section>
   </main>
 </aside>
+
+<!--строка информации итоговой суммы товаров в корзине-->
+
+<div class="sum-icon-box"></div>
+
+<!--модальное окно корзины-->
+
+<div class="shadow-box"></div>
+<section class="section-box">
+  <header class="header-box">
+    <div class="h1-div">
+      <span class="h1-box">Ваша корзина пуста</span>
+    </div>
+    <a class="exit-div" href="#" aria-label="Выход">
+      <img src="css/iconButton/cancel.svg" alt="Выход" class="exit-box">
+    </a>
+  </header>
+  <div class="collections-row-items">
+    <div class="main-box">
+      <aside class="all-menu">
+        <div class="check-all-container">
+          <label class="label">
+            <input type="checkbox" class="checkbox">
+            <span class="fake-checkbox"></span>
+            <span class="del-all-checkbox">Выбрать всё</span>
+          </label>
+        </div>
+        <div class="del-all-container">
+          <a href="#" aria-label="Удалить всё" class="button-del-all">Удалить всё
+            <img src="css/iconButton/delete.svg" alt="Удалить всё" class="del-all">
+          </a>
+        </div>
+      </aside>
+      <div class="opacity-border-box"></div>
+      <aside class="row-items">
+        <div class="container-item">
+          <div class="info-item">
+            <label class="label">
+              <input type="checkbox" class="checkbox">
+              <span class="fake-checkbox"></span>
+            </label>
+            <span class="photo-pet-span">
+                        <img src="#" alt="Фото питомца" class="photo-pet-box">
+                    </span>
+          </div>
+          <div class="bred-calc">
+            <span class="breed-box"></span>
+            <div class="calk-container">
+              <button class="calk minus" name="minus">-</button>
+              <output name="quantity-breed" class="quantity-breed">1</output>
+              <button class="calk plus" name="plus">+</button>
+            </div>
+          </div>
+          <div class="del-item-container">
+            <div class="price-del-item">
+              <span class="price-box"></span><span class="invisible-price"></span>
+              <span style="font-size: 20px; font-weight: 600;">₽</span>
+              <a href="#" aria-label="Удалить всё">
+                <img src="css/iconButton/delete.svg" alt="Удалить пароду" class="del-item">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="opacity-border-box"></div>
+      </aside>
+    </div>
+    <footer>
+      <div class="summary-info">
+        <span class="total-amount">товаров на сумму</span>
+        <span class="total-price"></span>
+      </div>
+      <a class="a-order" href="order/order.html">
+        <button class="order"><span>Оформить заказ</span></button>
+      </a>
+    </footer>
+  </div>
+</section>
+
+<!--мобильное меню-->
+
+<aside class="mobile-menu">
+  <a href="#">
+    <img class="icon" src="css/iconButton/bonus.svg" alt="Бонусы">
+    <span>Бонусы</span>
+  </a>
+  <a href="#">
+    <img class="icon" src="css/iconButton/box.svg" alt="Заказы">
+    <span>Заказы</span>
+  </a>
+  <a href="#">
+    <img class="icon" src="css/iconButton/promo.svg" alt="Акции">
+    <span>Акции</span>
+  </a>
+  <a href="#" class="button-in-box">
+    <img class="icon" src="css/iconButton/petHouse.svg" alt="Корзина">
+    <span class="box-info">Корзина</span>
+  </a>
+</aside>
+
 </body>
 </html>
