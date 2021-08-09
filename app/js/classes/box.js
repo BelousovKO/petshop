@@ -114,6 +114,8 @@ export class Box {
       this.boxContents.style.display = 'none';
     }
     this.dellItemInBox(infoCards);
+    this.plusCountItemInBox(infoCards);
+    this.minusCountItemInBox(infoCards)
   }
 
   dellItemInBox(infoCards) {
@@ -121,11 +123,45 @@ export class Box {
     drlItemsInBox.forEach(delItem => {
       delItem.addEventListener('click', () => {
         delete this.inBoxLS[delItem.dataset.idcards];
-        if(Object.keys(this.inBoxLS).length) {
+        if (Object.keys(this.inBoxLS).length) {
           localStorage.removeItem('inBox');
           localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
         } else {
           localStorage.removeItem('inBox');
+        }
+        this.calculatingBoxCounter(infoCards);
+      })
+    })
+  }
+
+  plusCountItemInBox(infoCards) {
+    const plusItems = document.querySelectorAll('.plus');
+    plusItems.forEach(plus => {
+      plus.addEventListener('click', () => {
+        this.inBoxLS[plus.dataset.idcards] += 1;
+        localStorage.removeItem('inBox');
+        localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        this.calculatingBoxCounter(infoCards);
+      })
+    })
+  }
+
+  minusCountItemInBox(infoCards) {
+    const minusItems = document.querySelectorAll('.minus');
+    minusItems.forEach(minus => {
+      minus.addEventListener('click', () => {
+        this.inBoxLS[minus.dataset.idcards] -= 1;
+        if (this.inBoxLS[minus.dataset.idcards]) {
+          localStorage.removeItem('inBox');
+          localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        } else {
+          delete this.inBoxLS[minus.dataset.idcards];
+          if(Object.keys(this.inBoxLS).length) {
+            localStorage.removeItem('inBox');
+            localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+          } else {
+            localStorage.removeItem('inBox');
+          }
         }
         this.calculatingBoxCounter(infoCards);
       })
