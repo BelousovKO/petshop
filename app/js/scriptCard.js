@@ -1,34 +1,56 @@
+import {Box} from "../js/classes/box.js";
+
+const box = new Box();
+
+const DiseasesRequest = new XMLHttpRequest();
+
+let diagnosesList
+
+DiseasesRequest.onload = function (e) {
+  diagnosesList = JSON.parse(DiseasesRequest.responseText);
+};
+
+DiseasesRequest.open("GET", "http://localhost:3000/api/directoryDiseases.json", true);
+DiseasesRequest.send();
+
+const xhr = new XMLHttpRequest();
+
+xhr.onload = function (e) {
+  init();
+};
+
+xhr.open("GET", "http://localhost:3000/api/dataCards.json", true);
+xhr.send();
+
+function init() {
+
+  const infoCards = JSON.parse(xhr.responseText);
+  const id = new URL(window.location.href).searchParams.get('id');
+  document.querySelector('.img-pet').src = infoCards[id].img;
+  document.querySelector('#typePet').textContent = addTypesPet();
+  document.querySelector('#sizePet').textContent = AddSizePet();
+
+  function addTypesPet() {
+    let res = '';
+    infoCards[id].hunter ? res = res.concat('охотничья, ') : '';
+    infoCards[id].companion ? res = res.concat('компаньён, ') : '';
+    infoCards[id].decorative ? res = res.concat('декоративная, ') : '';
+    infoCards[id].service ? res = res.concat('служебная, ') : '';
+    res = res.slice(0, 1).toUpperCase() + res.slice(1, res.length - 2);
+    return res;
+  }
+
+  function AddSizePet() {
+    let res = '';
+    infoCards[id].size = 1 ? res = 'Маленький' : '';
+    infoCards[id].size = 2 ? res = 'Средний' : '';
+    infoCards[id].size = 3 ? res = 'Большой' : '';
+    infoCards[id].size = 4 ? res = 'Маленький' : '';
+    return res;
+  }
+}
 
 
-
-
-
-
-
-
-
-
-// const DiseasesRequest = new XMLHttpRequest();
-//
-// let diseases
-//
-// DiseasesRequest.onload = function (e) {
-//   diseases = JSON.parse(DiseasesRequest.responseText);
-// };
-//
-// DiseasesRequest.open("GET", "http://localhost:3000/api/directoryDiseases.json", true);
-// DiseasesRequest.send();
-//
-// const xhr = new XMLHttpRequest();
-//
-// xhr.onload = function (e) {
-//   setTimeout(init, 0);
-// };
-//
-// xhr.open("GET", "http://localhost:3000/api/dataCards.json", true);
-// xhr.send();
-//
-// function init() {
 //
 //   const infoCards = JSON.parse(xhr.responseText);
 //   const id = new URL(window.location.href).searchParams.get('id');
