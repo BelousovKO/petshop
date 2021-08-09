@@ -25,6 +25,5 @@ function initOnload() {
 
   box.addListenerModalBasket();
   box.calculatingBoxCounter(infoCards);
-  box.fillingModalBasket(infoCards);
-  box.addListenerDellAllItemInBox();
+  box.addListenerDelAllItemInBox();
 }

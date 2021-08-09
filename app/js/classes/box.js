@@ -54,7 +54,7 @@ export class Box {
     })
   }
 
-  addListenerDellAllItemInBox() {
+  addListenerDelAllItemInBox() {
     this.buttonDellAllItemInBox.addEventListener('click', () => {
       localStorage.removeItem("inBox");
       this.calculatingBoxCounter();
@@ -97,20 +97,39 @@ export class Box {
       this.boxContents.style.display = 'block';
       this.countInBox.textContent = `${this.boxCount} `;
       this.sumTotalPriceInBox.textContent = `${this.sumTotalPrice} ₽`;
-      console.log('inBoxLS', this.inBoxLS);
       for (let elem in this.inBoxLS) {
         const template = document.querySelector('.template-item-in-box').cloneNode(true);
         template.content.querySelector('.photo-pet-box').src = infoCards[elem].img;
         template.content.querySelector('.quantity-breed').textContent = this.inBoxLS[elem];
         template.content.querySelector('.price-box').textContent =
           `${this.inBoxLS[elem] * infoCards[elem].price} ₽`;
-        template.content.querySelector('.minus').dataset.idcards =
+        template.content.querySelector('.minus').dataset.idcards = infoCards[elem].id;
+        template.content.querySelector('.plus').dataset.idcards = infoCards[elem].id;
+        template.content.querySelector('.del-item').dataset.idcards = infoCards[elem].id;
+        template.content.querySelector('.checkbox-item-in-box').dataset.idcards = infoCards[elem].id;
         document.querySelector('.container-items-in-box').appendChild(template.content);
       }
     } else {
       this.titleBox.textContent = 'Ваша корзина пуста';
       this.boxContents.style.display = 'none';
     }
+    this.dellItemInBox(infoCards);
+  }
+
+  dellItemInBox(infoCards) {
+    const drlItemsInBox = document.querySelectorAll('.del-item');
+    drlItemsInBox.forEach(delItem => {
+      delItem.addEventListener('click', () => {
+        delete this.inBoxLS[delItem.dataset.idcards];
+        if(Object.keys(this.inBoxLS).length) {
+          localStorage.removeItem('inBox');
+          localStorage.setItem('inBox', JSON.stringify(this.inBoxLS));
+        } else {
+          localStorage.removeItem('inBox');
+        }
+        this.calculatingBoxCounter(infoCards);
+      })
+    })
   }
 }
 
