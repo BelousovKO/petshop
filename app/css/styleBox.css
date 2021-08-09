@@ -24,6 +24,7 @@ html {
 .shadow-box {
     display: none;
     position: fixed;
+    top: 0;
     background-color: black;
     opacity: 0.5;
     width: 100%;
@@ -59,7 +60,7 @@ body .row-items {
 
 .del-all-container,
 .check-all,
-.h1-div,
+.container-title-box,
 .exit-div,
 .check-item,
 .del-item-container {
@@ -72,7 +73,7 @@ body .row-items {
     margin-left: auto;
 }
 
-.h1-box {
+.title-box {
     font-weight: 500;
     font-size: 24px;
 }
@@ -101,16 +102,13 @@ body .row-items {
     display: none;
     top: 75px;
     right: 0;
-    width: 145px;
+    width: 155px;
     background-color: #FBBA3C;
     z-index: 4;
     margin-left: auto;
     border-radius: 5px;
     padding-left: 5px;
-}
-
-.invisible-price {
-    display: none;
+    text-align: end;
 }
 
 button {
@@ -190,11 +188,10 @@ button {
 }
 
 .price-box,
-.total-price {
+.selected-text {
     font-size: 20px;
     font-weight: 600;
-    padding-bottom: 14px;
-    padding-left: 20px;
+    padding: 0 20px 14px;
 }
 
 a {

@@ -8,11 +8,17 @@
 .section-form,
 .section-form-size {
     padding: 7px;
+    height: auto;
 }
 
 .section-form {
     display: flex;
     flex-direction: column;
+}
+
+.small-section-form {
+    overflow: hidden;
+    height: 40px;
 }
 
 .section-form,
@@ -25,6 +31,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    cursor: pointer;
 }
 
 .a-filter:active {
@@ -54,6 +61,7 @@
 .mobile-filter-open {
     text-decoration: none;
     color: #FBBA3C;
+    cursor: pointer;
 }
 
 .a-filter-all {
@@ -91,6 +99,10 @@
 }
 
 .filter {
+    position: relative;
+}
+
+.label-input-min-size {
     position: relative;
 }
 

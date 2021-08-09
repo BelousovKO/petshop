@@ -165,7 +165,7 @@
   {
     "id": 9,
     "img": "img/dog-10.png",
-    "breed": "Английский Кокер",
+    "breed": "Английский кокер",
     "price": 21000,
     "hunter": false,
     "companion": false,

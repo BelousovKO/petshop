@@ -1,5 +1,6 @@
 import {Box} from "../js/classes/box.js";
 
+const box = new Box();
 const xhr = new XMLHttpRequest();
 
 xhr.onload = function () {
@@ -9,7 +10,7 @@ xhr.onload = function () {
 xhr.open("GET", "http://localhost:3000/api/dataCards.json", true);
 xhr.send();
 
-export function initOnload() {
+function initOnload() {
 
 }
 
@@ -24,7 +25,7 @@ export function initOnload() {
 
 
 
-// export const box = new Box();
+
 // const buttonBox = document.querySelector('.button-basket');
 // const sectionBox = document.querySelector('.section-box');
 // const shadowBox = document.querySelector('.shadow-box');

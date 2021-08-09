@@ -160,7 +160,16 @@ h1 {
     border-radius: 4px;
 }
 
-.div-show-more {
+.show-more:hover {
+    cursor: pointer;
+}
+
+.show-more[disabled]:hover {
+    cursor: default;
+    background-color: white;
+}
+
+.container-show-more {
     display: grid;
     justify-content: center;
 }
@@ -173,7 +182,7 @@ h1 {
     position: absolute;
     left: 233px;
     top: 0;
-    z-index: 6;
+    z-index: 4;
 }
 
 .buttonFilter {
@@ -263,8 +272,9 @@ h1 {
     position: sticky;
     top: 80px;
     left: 0;
-    z-index: 4;
+    z-index: 5;
     padding-top: 20%;
+    background-color: #F9F9F9;
 }
 
 .mobile-menu a {
