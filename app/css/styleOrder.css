@@ -164,12 +164,12 @@ h2 {
     background-color: #FBBA3C;
 }
 
-.container-item {
+.container-item-order {
     display: grid;
     grid-template-columns: auto 1fr 15%;
 }
 
-.info-item {
+.info-item-order {
     display: grid;
     grid-template-columns: 60% 40%;
     align-items: center;
@@ -240,7 +240,7 @@ h2 {
     display: block;
     width: 10px;
     height: 10px;
-    background: url("../css/iconButton/radio_checked.svg");
+    background: url("iconButton/radio_checked.svg");
     opacity: 0;
     transition: .2s;
     border-radius: 50%;
@@ -267,17 +267,21 @@ h2 {
 }
 
 @media (max-width: 639px) {
+    .title-items-order {
+        display: block;
+    }
+
     .submit {
         margin-top: 24px;
     }
 
-    .info-item {
+    .info-item-order {
         display: grid;
         grid-template-rows: auto auto;
         grid-template-columns: none;
     }
 
-    .container-item {
+    .container-item-order {
         display: grid;
         grid-template-columns: auto 1fr;
     }
