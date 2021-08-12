@@ -56,7 +56,7 @@ function init() {
         template.content.querySelector('.photo-pet').src = infoCards[+elem].img;
         template.content.querySelector('.breed').textContent = infoCards[+elem].breed;
         template.content.querySelector('.quantity-bred').textContent = inBoxLS[+elem];
-        template.content.querySelector('.price').textContent = `${inBoxLS[+elem] * infoCards[+elem].price}`;
+        template.content.querySelector('.price-item-order').textContent = `${inBoxLS[+elem] * infoCards[+elem].price}`;
         document.querySelector('.section-item').appendChild(template.content);
         totalPrice += inBoxLS[+elem] * infoCards[+elem].price;
         countItemsOrder += inBoxLS[+elem];

@@ -92,14 +92,14 @@ form {
     text-align: center;
 }
 
-.price {
+.price-item-order {
     font-size: 18px;
     font-weight: 600;
     min-width: 73px;
 }
 
 .quantity-bred,
-.price {
+.price-item-order {
     margin: 0 auto;
 }
 
@@ -290,7 +290,7 @@ h2 {
         margin: 0;
     }
 
-    .price {
+    .price-item-order {
         font-size: 16px;
     }
 
